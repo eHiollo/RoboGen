@@ -1,0 +1,16 @@
+-   use_table: false
+-   center: (1.8, 2, 0)
+    lang: a standard double oven
+    name: Oven
+    on_table: false
+    path: oven.urdf
+    reward_asset_path: '101808'
+    size: 0.9
+    type: urdf
+-   solution_path: data/generated_tasks_release/Oven_101808_2024-04-30-18-42-25/task_Open_Double_Oven_Door
+-   joint_0: '0'
+    joint_1: '0'
+    set_joint_angle_object_name: Oven
+-   spatial_relationships: []
+-   task_description: The robotic arm will open both doors of the double oven
+    task_name: Open Double Oven Door
