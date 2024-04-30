@@ -3,7 +3,7 @@ import os
 import time
 import json
 
-os.environ["OPENAI_API_KEY"] = "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" # put your api key here
+os.environ["OPENAI_API_KEY"] = "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" # put your api key here
 def query(system, user_contents, assistant_contents, model='gpt-4', save_path=None, temperature=1, debug=False):
     
     for user_content, assistant_content in zip(user_contents, assistant_contents):
