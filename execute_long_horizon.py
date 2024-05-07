@@ -23,6 +23,9 @@ def execute_multiple_try(
             skip=[], # which substeps to skip.
             num_try=8,
 ):
+        #开启gui
+    p.connect(p.GUI)
+
 
     if time_string is None:
         ts = time.time()

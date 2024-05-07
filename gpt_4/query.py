@@ -2,8 +2,9 @@ import openai
 import os
 import time
 import json
+import os
 
-os.environ["OPENAI_API_KEY"] = "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" # put your api key here
+os.environ["OPENAI_API_KEY"] = os.getenv("API_KEY")# put your api key here
 def query(system, user_contents, assistant_contents, model='gpt-4', save_path=None, temperature=1, debug=False):
     
     for user_content, assistant_content in zip(user_contents, assistant_contents):
