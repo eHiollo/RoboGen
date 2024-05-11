@@ -19,7 +19,7 @@ class BoxDemo():
         p.loadURDF("plane.urdf")
 
         # load robot
-        robot_id = p.loadURDF("models/franka_description/robots/panda_arm.urdf", (0,0,0), useFixedBase = 1)
+        robot_id = p.loadURDF("/media/allen/48E8A85EE8A84C4E/RoboGen-main/pybullet_ompl/models/franka_description/robots/panda_arm.urdf", (0,0,0), useFixedBase = 1)
         robot = pb_ompl.PbOMPLRobot(robot_id)
         self.robot = robot
 
