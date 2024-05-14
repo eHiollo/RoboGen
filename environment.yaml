@@ -1,4 +1,4 @@
-name: robogen
+name: robogen1
 channels:
   - anaconda
   - pytorch
