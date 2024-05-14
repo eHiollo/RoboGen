@@ -18,7 +18,7 @@ class SimpleEnv(gym.Env):
     def __init__(self, 
                     dt=0.01, 
                     config_path=None, 
-                    gui=False, 
+                    gui=True, 
                     frameskip=2, 
                     horizon=120, 
                     restore_state_file=None, 
@@ -71,7 +71,7 @@ class SimpleEnv(gym.Env):
                 self.id = p.connect(p.DIRECT)
         else:
             self.id = p.connect(p.DIRECT)
-                
+    
         self.asset_dir = osp.join(osp.dirname(osp.realpath(__file__)), "assets/")
         hz=int(1/dt)
         p.setTimeStep(1.0 / hz, physicsClientId=self.id)
@@ -272,7 +272,8 @@ class SimpleEnv(gym.Env):
             "ur5": UR5,
         }
         robot_names = list(robot_classes.keys())
-        self.robot_name = robot_names[np.random.randint(len(robot_names))]
+        #self.robot_name = robot_names[np.random.randint(len(robot_names))]
+        self.robot_name = robot_names[0]
         if restore_state is not None and "robot_name" in restore_state:
             self.robot_name = restore_state['robot_name']
         self.robot_class = robot_classes[self.robot_name]
