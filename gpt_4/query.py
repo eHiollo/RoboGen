@@ -37,7 +37,10 @@ def query(system, user_contents, assistant_contents, model='gpt-4', save_path=No
         messages.append({"role": "user", "content": user_contents[idx]})
         messages.append({"role": "assistant", "content": assistant_contents[idx]})
     messages.append({"role": "user", "content": user_contents[-1]})
-
+    
+    #增加延时，防止请求过快
+    time.sleep(40)
+    
     openai.api_key = os.environ["OPENAI_API_KEY"]
     response = openai.ChatCompletion.create(
         model=model,

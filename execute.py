@@ -107,8 +107,7 @@ def execute(task_config_path,
             reward_learning_save_path=None,
             last_restore_state_file=None,
 ):
-    #开启gui
-    p.connect(p.GUI)
+
 
     if time_string is None:
         ts = time.time()
