@@ -1,0 +1,9 @@
+-   use_table: false
+-   center: (1.8, 2, 0)
+    lang: a standard oven with multiple knobs
+    name: Oven
+    on_table: false
+    path: oven.urdf
+    reward_asset_path: '101808'
+    size: 0.9
+    type: urdf

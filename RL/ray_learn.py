@@ -73,7 +73,7 @@ def load_policy(algo, env_name, policy_path=None, seed=0, env_config={}, eval=Fa
             return agent, None
     return agent, None
 
-def train(env_name, algo, timesteps_total=2000000, save_dir='./trained_models/', load_policy_path='', seed=0, 
+def train(env_name, algo, timesteps_total=65000, save_dir='./trained_models/', load_policy_path='', seed=0, 
           env_config={}, eval_interval=20000, render=False):
 
     if not ray.is_initialized():

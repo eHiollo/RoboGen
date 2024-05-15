@@ -91,7 +91,7 @@ def test_env(solution_path, time_string, substeps, action_spaces, meta_info, ran
 def execute(task_config_path, 
             time_string=None, resume=False, # these two are combined for resume training.
             training_algo='RL_sac', 
-            gui=False, 
+            gui=True, 
             randomize=False, # whether to randomize the initial state of the environment.
             use_bard=True, # whether to use the bard to verify the retrieved objects.
             use_gpt_size=True, # whether to use the size from gpt.

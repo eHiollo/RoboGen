@@ -20,7 +20,7 @@ import trimesh
 from objaverse_utils.utils import text_to_uid_dict, partnet_mobility_dict, sapaien_cannot_vhacd_part_dict
 
 default_config = {
-    "gui": False,
+    "gui": True,
     "use_suction": True,
     "rotation_mode": 'delta-axis-angle-local',
 }
@@ -282,7 +282,7 @@ def obj_to_urdf(obj_file_path, scale=1, vhacd=True, normalized=True, obj_name='m
         f.write(urdf)
 
 def run_vhacd(input_obj_file_path, normalized=True, obj_name="material"):
-    p.connect(p.DIRECT)
+    #p.connect(p.GPU)
     if normalized:
         name_in = os.path.join(input_obj_file_path, "{}_normalized.obj".format(obj_name))
         name_out = os.path.join(input_obj_file_path, "{}_normalized_vhacd.obj".format(obj_name))
@@ -303,7 +303,7 @@ def parse_center(center):
 
 def run_vhacd_with_timeout(args):
     name_in, name_out, name_log, urdf_file_path, obj_file_name = args
-    id = p.connect(p.DIRECT)
+    id = p.connect(p.GPU)
     proc = Process(target=p.vhacd, args=(name_in, name_out, name_log))
 
     proc.start()
@@ -330,8 +330,6 @@ def run_vhacd_with_timeout(args):
         print("process finished")
         p.disconnect(id)
         return True
-
-   
 
 def preprocess_urdf(urdf_file_path, num_processes=6):
     new_lines = []
@@ -404,7 +402,6 @@ def preprocess_urdf(urdf_file_path, num_processes=6):
         json.dump(sapaien_cannot_vhacd_part_dict, f, indent=4)
 
     return new_path
-
 
 def parse_config(config, use_bard=True, obj_id=None, use_gpt_size=True, use_vhacd=True):
     urdf_paths = []
@@ -515,8 +512,6 @@ def parse_config(config, use_bard=True, obj_id=None, use_gpt_size=True, use_vhac
     return urdf_paths, urdf_sizes, urdf_locations, urdf_names, urdf_types, urdf_on_tables, use_table, \
         articulated_joint_angles, spatial_relationships, distractor_config_path, urdf_movables
             
-        
-
 def take_round_images(env, center, distance, elevation=30, azimuth_interval=30, camera_width=640, camera_height=480,
                         return_camera_matrices=False, z_near=0.01, z_far=10, save_path=None):
     camera_target = center

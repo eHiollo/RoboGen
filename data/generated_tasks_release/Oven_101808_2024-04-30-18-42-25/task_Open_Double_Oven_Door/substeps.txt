@@ -1,0 +1,4 @@
+ grasp the first door of the oven
+ open the first door of the oven
+ grasp the second door of the oven
+ open the second door of the oven
