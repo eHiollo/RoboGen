@@ -29,7 +29,7 @@ class PbOMPLRobot():
     def __init__(self, id) -> None:
         # Public attributes
         self.id = id
-        self.state = None    
+        self.state = None
 
         # prune fixed joints
         all_joint_num = p.getNumJoints(id)
@@ -42,6 +42,8 @@ class PbOMPLRobot():
         self.joint_bounds = []
         self.get_joint_bounds()
 
+        # Initialize state here if it's meant to hold some initial state
+        self.state = None  
     def _is_not_fixed(self, joint_idx):
         joint_info = p.getJointInfo(self.id, joint_idx)
         return joint_info[2] != p.JOINT_FIXED
@@ -227,6 +229,7 @@ class PbOMPL():
         # set the start and goal states;
         s = ob.State(self.space)
         g = ob.State(self.space)
+        print("start type: " ,type(start))
         for i in range(len(start)):
             s[i] = start[i]
             g[i] = goal[i]
@@ -274,8 +277,10 @@ class PbOMPL():
             if dynamics:
                 for i in range(self.robot.num_dim):
                     p.setJointMotorControl2(self.robot.id, i, p.POSITION_CONTROL, q[i],force=5 * 240.)
+                    time.sleep(0.1)
             else:
                 self.robot.set_state(q)
+                time.sleep(0.1)
             p.stepSimulation()
             time.sleep(0.01)
 

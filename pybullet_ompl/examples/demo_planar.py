@@ -2,6 +2,7 @@ import os.path as osp
 import pybullet as p
 import math
 import sys
+import time
 sys.path.insert(0, osp.join(osp.dirname(osp.abspath(__file__)), '../'))
 
 from my_planar_robot import MyPlanarRobot
@@ -16,7 +17,7 @@ class Maze2D():
         p.setTimeStep(1./240.)
 
         # load robot
-        robot_id = p.loadURDF("models/planar_robot_4_link.xacro", (0,0,0))
+        robot_id = p.loadURDF("pybullet_ompl/models/planar_robot_4_link.xacro", (0,0,0))
         robot = MyPlanarRobot(robot_id)
         self.robot = robot
 
@@ -74,3 +75,4 @@ class Maze2D():
 if __name__ == '__main__':
     maze = Maze2D()
     maze.demo()
+    time.sleep(1000)

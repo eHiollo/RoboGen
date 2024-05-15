@@ -1,4 +1,8 @@
 __pycache__/
+
+RL_sac/
+data/
+/media/allen/48E8A85EE8A84C4E/RoboGen-main/data/dataset
 manipulation/gpt_tasks/
 manipulation/gpt_tasks_old/
 manipulation/gpt_rigid_tasks/

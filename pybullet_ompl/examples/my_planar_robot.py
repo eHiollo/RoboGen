@@ -1,6 +1,9 @@
+import os.path as osp
+import sys
 import pybullet as p
 from scipy.spatial.transform import Rotation as R
 import math
+sys.path.insert(0, osp.join(osp.dirname(osp.abspath(__file__)), '../'))
 
 from pb_ompl import PbOMPLRobot
 

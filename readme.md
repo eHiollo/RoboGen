@@ -45,12 +45,12 @@ We are still in the process of cleaning the code & testing, please stay tuned!
 ### RoboGen
 Clone this git repo.
 ```
-git clone https://github.com/Genesis-Embodied-AI/RoboGen.git
+git clone https://github.com/eHiollo/RoboGen
 ```
 We recommend working with a conda environment.
 ```
 conda env create -f environment.yaml
-conda activate robogen
+conda activate robogen1
 ```
 If installing from this yaml file doesn't work, manual installation of missing packages should also work.
 

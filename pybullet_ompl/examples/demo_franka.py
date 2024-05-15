@@ -1,6 +1,7 @@
 import os.path as osp
 import pybullet as p
 import math
+import time
 import sys
 import pybullet_data
 sys.path.insert(0, osp.join(osp.dirname(osp.abspath(__file__)), '../'))
@@ -19,7 +20,7 @@ class BoxDemo():
         p.loadURDF("plane.urdf")
 
         # load robot
-        robot_id = p.loadURDF("models/franka_description/robots/panda_arm.urdf", (0,0,0), useFixedBase = 1)
+        robot_id = p.loadURDF("pybullet_ompl/models/franka_description/robots/panda_arm.urdf", (0,0,0), useFixedBase = 1)
         robot = pb_ompl.PbOMPLRobot(robot_id)
         self.robot = robot
 
