@@ -18,11 +18,7 @@ class SimpleEnv(gym.Env):
     def __init__(self, 
                     dt=0.01, 
                     config_path=None, 
-<<<<<<< HEAD
                     gui=False, 
-=======
-                    gui=True, 
->>>>>>> wjy
                     frameskip=2, 
                     horizon=120, 
                     restore_state_file=None, 
@@ -75,11 +71,7 @@ class SimpleEnv(gym.Env):
                 self.id = p.connect(p.DIRECT)
         else:
             self.id = p.connect(p.DIRECT)
-<<<<<<< HEAD
                 
-=======
-    
->>>>>>> wjy
         self.asset_dir = osp.join(osp.dirname(osp.realpath(__file__)), "assets/")
         hz=int(1/dt)
         p.setTimeStep(1.0 / hz, physicsClientId=self.id)
