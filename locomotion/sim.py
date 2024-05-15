@@ -1,14 +1,9 @@
-import os.path as osp
+import os
 import pybullet as p
 import pybullet_data as pd
 import numpy as np
 from gym import spaces
 import gym
-import sys
-
-# Add the directory containing cem_policy.utils.py to the Python path
-sys.path.insert(0, osp.join(osp.dirname(osp.abspath(__file__)), '../'))
-
 from cem_policy.utils import save_env
 
 class SimpleEnv(gym.Env):

@@ -1,0 +1,8 @@
+{
+    "task_generation": "gpt-4",
+    "reward": "gpt-4",
+    "yaml": "gpt-4",
+    "size": "gpt-4",
+    "joint": "gpt-4",
+    "spatial_relationship": "gpt-4"
+}

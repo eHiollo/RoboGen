@@ -1,0 +1,8 @@
+{
+    "task_generation": 0.6,
+    "reward": 0.2,
+    "yaml": 0.3,
+    "size": 0.1,
+    "joint": 0,
+    "spatial_relationship": 0
+}

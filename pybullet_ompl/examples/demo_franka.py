@@ -61,8 +61,4 @@ class BoxDemo():
 
 if __name__ == '__main__':
     env = BoxDemo()
-    while True:
-        cmd = input("Enter 'exit' to close or press enter to continue: ")
-        if cmd.lower() == 'exit':
-            break
-        env.demo()
+    env.demo()

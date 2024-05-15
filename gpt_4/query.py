@@ -2,8 +2,9 @@ import openai
 import os
 import time
 import json
+import os
 
-os.environ["OPENAI_API_KEY"] = "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" # put your api key here
+os.environ["OPENAI_API_KEY"] = os.getenv("API_KEY")# put your api key here
 def query(system, user_contents, assistant_contents, model='gpt-4', save_path=None, temperature=1, debug=False):
     
     for user_content, assistant_content in zip(user_contents, assistant_contents):
@@ -36,7 +37,10 @@ def query(system, user_contents, assistant_contents, model='gpt-4', save_path=No
         messages.append({"role": "user", "content": user_contents[idx]})
         messages.append({"role": "assistant", "content": assistant_contents[idx]})
     messages.append({"role": "user", "content": user_contents[-1]})
-
+    
+    #增加延时，防止请求过快
+    time.sleep(40)
+    
     openai.api_key = os.environ["OPENAI_API_KEY"]
     response = openai.ChatCompletion.create(
         model=model,

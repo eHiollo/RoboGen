@@ -8,9 +8,8 @@ except ImportError:
     import sys
     from ompl import base as ob
     from ompl import geometric as og
-    import utils 
 import pybullet as p
-import utils 
+import pybullet_ompl.utils as utils
 import time
 from itertools import product
 import copy
@@ -30,6 +29,7 @@ class PbOMPLRobot():
     def __init__(self, id) -> None:
         # Public attributes
         self.id = id
+        self.state = None
 
         # prune fixed joints
         all_joint_num = p.getNumJoints(id)
@@ -63,7 +63,6 @@ class PbOMPLRobot():
         return self.joint_bounds
 
     def get_cur_state(self):
-        #[0,0,0,-1,0,1.5,0]
         return copy.deepcopy(self.state)
 
     def set_state(self, state):
@@ -184,7 +183,11 @@ class PbOMPL():
     def setup_collision_detection(self, robot, obstacles, self_collisions = True):
         self.check_link_pairs = utils.get_self_link_pairs(robot.id, robot.joint_idx) if self_collisions else []
         for allow_collision_pair in self.allow_collision_robot_link_pairs:
-            self.check_link_pairs.remove(allow_collision_pair)
+            if allow_collision_pair in self.check_link_pairs:
+                self.check_link_pairs.remove(allow_collision_pair)
+            else:
+                print("Warning: Attempt to remove a non-existent collision pair:", allow_collision_pair)
+
         moving_links = frozenset(
             [item for item in utils.get_moving_links(robot.id, robot.joint_idx) if not item in self.allow_collision_links])
         moving_bodies = [(robot.id, moving_links)]
