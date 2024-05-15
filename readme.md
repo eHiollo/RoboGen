@@ -50,7 +50,7 @@ git clone https://github.com/Genesis-Embodied-AI/RoboGen.git
 We recommend working with a conda environment.
 ```
 conda env create -f environment.yaml
-conda activate robogen
+conda activate robogen1
 ```
 If installing from this yaml file doesn't work, manual installation of missing packages should also work.
 
