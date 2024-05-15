@@ -43,7 +43,7 @@ We are still in the process of cleaning the code & testing, please stay tuned!
   - [Pre-generated Tasks](#Pre-generated-tasks)
 ## Setup
 ### RoboGen
-Clone this git repo.
+Clone this git repo.s
 ```
 git clone https://github.com/eHiollo/RoboGen
 ```
